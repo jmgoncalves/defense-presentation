@@ -1,0 +1,27 @@
+h2 {
+  text-align: left;
+}
+
+h2.centered {
+  text-align: center;
+}
+
+h3 {
+  text-align: left;
+}
+
+h3.centered {
+  text-align: center;
+}
+
+p {
+  text-align: left;
+}
+
+p.centered {
+  text-align: center;
+}
+
+pre {
+  width: 500px;
+}
