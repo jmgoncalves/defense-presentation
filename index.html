@@ -117,10 +117,10 @@
 						<p><strong>Decentralize</strong> service providers</p>
 					</section>
 					<section>
-						<h2>3.1 Identinet</h2>
+						<h2>3.1 XMPP-based Identinet</h2>
 						<p>Simplistic <strong>network</strong> &amp; <strong>session</strong> identifier decoupling</p>
-						<p>Identity-based </strong>endpoint resolution</strong> and <strong>routing</strong></p>
-						<p>TODO IMAGE?</p>
+						<p>Identity-based <strong>endpoint resolution</strong> and <strong>routing</strong></p>
+						<img src="img/xmpp.png" />
 					</section>
 					<section>
 						<h2>3.2 User-hosted SOA</h2>
@@ -130,7 +130,8 @@
 					<section>
 						<h2>3.3 <em>SOCIETIES</em> prototype</h2>
 						<p>XMPP adapted to be used as a session-layer protocol</p>
-						<p>Used by over 15 developers to expose over 40 different services</p>
+						<p>Used by over 15 researchers to expose over 40 services</p>
+						<P>Enabled research on local monitoring to detect misbehaved services/applications</p>
 						<img src="img/societies-idlayer.png" style="height:300px"/>
 					</section>
 					<section>
@@ -175,9 +176,13 @@
 					</section>
 					<section>
 						<h2>4.1 Near-future Context-awareness Scenarios</h2>
-						<p>Geographic alarms</p>
-						<p>Service adaptation</p>
-						<p>TODO</p>
+						<p><strong>Triggers</strong> and alarms (e.g. geo-fencing)</p>
+						<p>Context-based <strong>content rating</strong></p>
+						<p>Service <strong>adaptation</strong> through...</p>
+						<p><small><strong>location</strong> - more content related to where he is located</small><br/>
+							 <small><strong>presence and calendar</strong> - trigger disabling; useful information or time-sink content</small><br/>
+							 <small><strong>proximity</strong> - more content related to co-located users</small><br/>
+							 <small><strong>preferences</strong> - general interests such as politics, sports, finance, ...</small></p>
 					</section>
 					<section>
 						<h2>4.2 Event-driven Context Delivery</h2>
@@ -240,9 +245,9 @@
 					</section>
 					<section>
 						<h2>4.6 Minimized Context Distribution</h2>
-						<p>Filtering by parameter values (e.g. geo-boxing)</p>
+						<p>Filtering by parameter values (e.g. geo-fencing)</p>
 						<img src="img/area.png"/>
-						<p>Filtering by date/time (time-boxing)</p>
+						<p>Filtering by date/time (timeboxing)</p>
 					</section>
 					<section>
 						<h2>4.7 Access Control Latency</h2>
@@ -252,10 +257,13 @@
 
 				<section>
 					<section>
-						<h2>5. Data-level Re-Identification Protection</h2>
-						<p>Indistinguishability of records within a database</p>
-						<p>Sparsity is a key problem in high-dimensionality</p>
-						<p>TODO</p>
+						<h2>5. Data-centric Re-Identification</h2>
+						<p><strong>Indistinguishability</strong> of records within a database</p>
+						<p>The curse of dimensionality
+							<ul><li><strong>Quasi-identifier</strong> assumption is not realistic</li>
+							<li><strong>Sparsity</strong> the main source of identifiability</li></ul>
+						</p>
+						<p><strong>Utility</strong> is usually an optimization goal</p>
 					</section>
 					<section>
 						<h2>5.1 Record Fragmentation</h2>
@@ -263,9 +271,9 @@
 					</section>
 					<section>
 						<h2>5.2 Experiments</h2>
-						<p>Netflix and Movielens datasets</p>
-						<p>Well known re-identification attack</p>
-						<p>Recent sanitization algorithm as baseline</p>
+						<p><strong>Netflix</strong> and <strong>Movielen</strong> datasets</p>
+						<p><strong>Re-identification attack</strong> from Narayanan's seminal paper</p>
+						<p>Recent <strong>partitioning-based sanitization algorithm</strong> as reference</p>
 					</section>
 					<section>
 						<h2>5.3 Predictions RMSE</h2>
@@ -287,9 +295,40 @@
 
 				<section>
 					<section>
-						<h2>6. Conclusion</h2>
-						<p>TODO</p>
+						<h2>6. Future of Privacy</h2>
+						<p><strong>Hiding in plain sight</strong>, due to unprecedented volume of data collection and distribution
+							<br/><small>at least until fully homomorphic encryption becomes practical</small><p>
+						<p><strong>Minimize collection</strong> and <strong>aggregation</strong>
+							<br/><small>while enabling functionality and not being cumbersome</small><p>
+						<p>Many other...
+							<br/><small>architecture and development concepts and practices, legislation and regulation, usability and rational incentives...</small><p>
 					</section>
+					<section>
+						<h2>6.1 Pseudonym Management</h2>
+						<p>Requires using Identity Management with...
+							<br/>... crypto, anonymous communications, authn &amp; authz...
+							<br/>... and <strong>data-centric privacy</strong>!</p>
+						<p>Pseudonym <strong>linkability</strong> and <strong>re-identification</strong> are both about <strong>distinguishability</strong></p>
+						<p>Empirically <strong>validated</strong> approach, but theoretical limits not explored...</p>
+					</section>
+					<section>
+						<h2>6.2 Data Minimization</h2>
+						<p>Very relevant to mitigate <strong>aggregation</strong> risks</p>
+						<p>Must be <strong>easy for the user</strong> and compliant with <strong>real-time</strong> requirements</p>
+					</section>
+					<section>
+						<h2>6.3 Out there...</h2>
+						<p><strong>Network centricity</strong> of data in systems</p>
+						<p><strong>Multilateral security</strong> and <em>privacy by design</em></p>
+						<p>People-savvy technology</p>
+						<p>Tech-savvy legislation and regulation</p>
+					</section>
+				</section>
+
+				<section>
+					<h2 class="centered">Thank you</h2>
+					<p class="centered"><small>João Miguel Ribeiro Gonçalves
+						<br/>joao.m.goncalves@ua.pt</small><p>
 				</section>
 			</div>
 
