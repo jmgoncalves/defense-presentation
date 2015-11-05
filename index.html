@@ -113,12 +113,12 @@
 						<h2>3. Towards an Identity Layer</h2>
 						<p>Re-unite <strong>authentication</strong> and <strong>encryption</strong></p>
 						<p><strong>Pseudonym</strong>-enabled single sign-on</p>
-						<p>Separate <strong>network</strong>-level from <strong>application</strong>-level <strong>attacks</strong></p>
+						<p>Separate <strong>network</strong>-level from <strong>data</strong>-level <strong>attacks</strong></p>
 						<p><strong>Decentralize</strong> service providers</p>
 					</section>
 					<section>
 						<h2>3.1 XMPP-based Identinet</h2>
-						<p>Simplistic <strong>network</strong> &amp; <strong>session</strong> identifier decoupling</p>
+						<p>Simplistic <strong>network</strong> &amp; <strong>service</strong> decoupling</p>
 						<p>Identity-based <strong>endpoint resolution</strong> and <strong>routing</strong></p>
 						<img src="img/xmpp.png" />
 					</section>
@@ -128,14 +128,23 @@
 						<img src="img/xmppsoa.png" style="height:400px"/>
 					</section>
 					<section>
-						<h2>3.3 <em>SOCIETIES</em> prototype</h2>
-						<p>XMPP adapted to be used as a session-layer protocol</p>
+						<h2>3.3 Service-defined Payloads</h2>
+						<pre><code class="xml">
+<iq from='css1@societies.local/device' to='cis1.societies.local' type='set' id='join1'>
+ <community xmlns='http://societies.org/community'>
+	 <join></join>
+ </community>
+</iq>
+						</code></pre>
+					</section>
+					<section>
+						<h2>3.4 <em>SOCIETIES</em> prototype</h2>
 						<p>Used by over 15 researchers to expose over 40 services</p>
-						<P>Enabled research on local monitoring to detect misbehaved services/applications</p>
+						<P>Enabled research on local <strong>traffic scanning to detect misbehaved</strong> services &amp; applications</p>
 						<img src="img/societies-idlayer.png" style="height:300px"/>
 					</section>
 					<section>
-						<h2>3.4 Identity-driven Service Discovery</h2>
+						<h2>3.5 Identity-driven Service Discovery</h2>
 						<pre><code class="xml">
 <iq from='user1.societies.local' to='client@societies.local/device' type='result' id='info1'>
  <query xmlns='http://jabber.org/protocol/disco#info'>
@@ -149,16 +158,6 @@
   <feature var='http://societies.org/api/schema/privacytrust/trust/model'/></feature>
   <feature var='http://societies.org/api/schema/privacytrust/trust/evidence/collector'/></feature>
  </query>
-</iq>
-						</code></pre>
-					</section>
-					<section>
-						<h2>3.5 Service-defined Payloads</h2>
-						<pre><code class="xml">
-<iq from='css1@societies.local/device' to='cis1.societies.local' type='set' id='join1'>
- <community xmlns='http://societies.org/community'>
-   <join></join>
- </community>
 </iq>
 						</code></pre>
 					</section>
@@ -257,7 +256,7 @@
 
 				<section>
 					<section>
-						<h2>5. Data-centric Re-Identification</h2>
+						<h2>5. Data Re-Identification</h2>
 						<p><strong>Indistinguishability</strong> of records within a database</p>
 						<p>The curse of dimensionality
 							<ul><li><strong>Quasi-identifier</strong> assumption is not realistic</li>
@@ -271,24 +270,30 @@
 					</section>
 					<section>
 						<h2>5.2 Experiments</h2>
-						<p><strong>Netflix</strong> and <strong>Movielen</strong> datasets</p>
+						<p><strong>Netflix</strong> and <strong>Movielens</strong> datasets</p>
 						<p><strong>Re-identification attack</strong> from Narayanan's seminal paper</p>
-						<p>Recent <strong>partitioning-based sanitization algorithm</strong> as reference</p>
+						<p>Recent <strong>partitioning-based sanitization algorithm</strong>...</p>
+							<p><small>... most relaxed privacy guarantee, specifically for high-dimensional case</small>
+							<br/><small>... still destroys utility beyond naïve predictions (i.e. average movie rating)</small></p>
 					</section>
+<!--
 					<section>
 						<h2>5.3 Predictions RMSE</h2>
 						<img src="img/rmse.png" style="height:500px"/>
 					</section>
+-->
 					<section>
-						<h2>5.4 Re-identification vs Auxiliary Information</h2>
+						<h2>5.3 Re-ID vs Auxiliary Info</h2>
+						<p>Re-identification success has a <strong>limit</strong></p>
 						<img src="img/reid-aux.png" style="height:500px"/>
 					</section>
 					<section>
-						<h2>5.5 Re-identification Limit</h2>
+						<h2>5.4 Re-ID Outcomes at Limit</h2>
 						<img src="img/reid-limit.png" style="height:500px"/>
 					</section>
 					<section>
-						<h2>5.6 Adversary Gain</h2>
+						<h2>5.5 Adversary Gain</h2>
+						<p><strong># of new retreived attributes</strong> w.r.t. the targeted user</p>
 						<img src="img/adv-gain.png" style="height:500px"/>
 					</section>
 				</section>
@@ -298,30 +303,87 @@
 						<h2>6. Near-Future of Privacy</h2>
 						<p><strong>Hiding in plain sight</strong>, due to unprecedented volume of data collection and distribution
 							<br/><small>at least until fully homomorphic encryption becomes practical</small><p>
-						<p><strong>Minimize collection</strong> and <strong>aggregation</strong>
-							<br/><small>while enabling functionality and not being cumbersome</small><p>
-						<p>Many other...
-							<br/><small>architecture and development concepts and practices, legislation and regulation, usability and rational incentives...</small><p>
+						<p>Enable <strong>service adaptation</strong> but minimize <strong>context data distribution</strong>
+							<br/><small>while not being cumbersome for the user</small><p>
+						<p><strong>Understanding</strong> privacy
+							<br/><small>challenges and bodies of knowledge, legislation and regulation, usability and user choice...</small><p>
 					</section>
 					<section>
-						<h2>6.1 Pseudonym Management</h2>
+						<h2>6.1 Decentralization and Pseudonym Management</h2>
 						<p>Requires using Identity Management with...
 							<br/>... crypto, anonymous communications, authn &amp; authz...
 							<br/>... and <strong>data-centric privacy</strong>!</p>
-						<p>Pseudonym <strong>linkability</strong> and <strong>re-identification</strong> are both about <strong>distinguishability</strong></p>
-						<p>Empirically <strong>validated</strong> approach, but theoretical limits not explored...</p>
+						<p>Pseudonym <strong>linkability</strong> and record <strong>re-identification</strong> are both about <strong>distinguishability</strong></p>
+						<table class="small-font">
+							<tbody>
+								<tr>
+									<td>Societies Positions on Federated Social Networking</td>
+									<td>W3C Federated Social Web Summit Europe</td>
+									<td>Presented 2010</td>
+								</tr>
+								<tr>
+									<td>User-Hosted SOA Infrastructure over XMPP</td>
+									<td>IEEE Symposium on Computers and Communications</td>
+									<td>Published 2014</td>
+								</tr>
+								<tr>
+									<td>Privacy in Data Publishing for Tailored Recommendation Scenarios</td>
+									<td>Transactions on Data Privacy</td>
+									<td>Under minor review</td>
+								</tr>
+							</tbody>
+						</table>
 					</section>
 					<section>
-						<h2>6.2 Data Minimization</h2>
-						<p>Very relevant to mitigate <strong>aggregation</strong> risks</p>
+						<h2>6.2 Context Data Minimization</h2>
+						<p>Very relevant to <strong>mitigate aggregation</strong> risks</p>
 						<p>Must be <strong>easy for the user</strong> and compliant with <strong>real-time</strong> requirements</p>
+						<table class="small-font">
+							<tbody>
+								<tr>
+									<td>Context Management Architecture for Future Internet Services</td>
+									<td>ICT Mobile and Wireless Communications Summit</td>
+									<td>Published 2009; 20 citations</td>
+								</tr>
+								<tr>
+									<td>CATS: Context-Aware Triggering System for Next Generation Networks</td>
+									<td>IFIP Advances in Information and Communication Technology: Wireless and Mobile Networking</td>
+									<td>Published 2009</td>
+								</tr>
+								<tr>
+									<td>Professional and User-Generated Content Rating using Context Information</td>
+									<td>Networked &amp; Electronic Media Summit</td>
+									<td>Presented &amp; published 2010</td>
+								</tr>
+								<tr>
+									<td>XMPP based Context Management Architecture</td>
+									<td>IEEE Globecom Workshops</td>
+									<td>Published 2010; 12 citations</td>
+								</tr>
+								<tr>
+									<td>Low-latency privacy-enabled Context Distribution Architecture</td>
+									<td>IEEE International Conference on Communications (ICC)</td>
+									<td>Presented &amp; published 2012</td>
+								</tr>
+							</tbody>
+						</table>
 					</section>
 					<section>
-						<h2>6.3 And other under-explored paths and synergies...</h2>
-						<p><strong>Network centricity</strong> and practical, scalable <strong>de-centralized service hosting</strong></p>
-						<p><strong>Multilateral security</strong> and <strong>game theory</strong></p>
+						<h2>6.3 Interdisciplinary Privacy</h2>
+						<p>Characterization and mapping of <strong>privacy challenges</strong> and <strong>fields</strong></p>
+						<p>Indentification of more <strong>interdisciplinary work</strong>
+							<br/><small>e.g. multilateral security and game theory</small></p>
 						<p>People-savvy technology</p>
 						<p>Tech-savvy legislation and regulation</p>
+						<table class="small-font">
+							<tbody>
+								<tr>
+									<td>Privacy Untangled</td>
+									<td>17o Seminário da Rede Temática de Comunicações Móveis (RTCM)</td>
+									<td>Presented 2013</td>
+								</tr>
+							</tbody>
+						</table>
 					</section>
 				</section>
 
