@@ -170,7 +170,7 @@
 						<p>Key aspect of Ambient Intelligence due to <strong>reactive</strong> nature</p>
 						<p><strong>Decoupling</strong> between context acquisition and consumption</p>
 						<p><strong>Extensible</strong> context information types</p>
-						<p><strong>Real-time</strong> context delivery</p>
+						<p>"<strong>Real-time</strong>" context delivery</p>
 						<p>Privacy through <strong>data minimization</strong></p>
 					</section>
 					<section>
@@ -181,44 +181,116 @@
 					</section>
 					<section>
 						<h2>4.2 Event-driven Context Delivery</h2>
-						<p>TODO</p>
+						<p>Publish/subscribe for quick delivery to consumers</p>
+						<p>Data gathering from constrained devices</p>
+						<img src="img/broker.png" style="height:350px"/>
 					</section>
 					<section>
-						<h2>4.3 Low-Latency Access Control</h2>
-						<p>TODO</p>
+						<h2>4.3 Extensible Context Representation</h2>
+						<pre><code class="xml">
+<iq type="set" to="gps.c3s.hng.av.it.pt" id="set1">
+  <query>
+    <gps xmlns="http://c3s.hng.av.it.pt/gps">
+      <latitude>45.21134</latitude>
+      <longitude>7.67054</longitude>
+      <accuracy>580</accuracy>
+      <altitude>19.3</altitude>
+      <bearing>18.3</bearing>
+      <speed>5</speed>
+    </gps>
+  </query>
+</iq>
+						</code></pre>
+					</section>
+					<section>
+						<h2>4.4 Low-Latency Access Control</h2>
+						<p>Fine-grained access control for context minimization</p>
+						<p>Must be compatible with "real-time" delivery (~190ms)</p>
+						<img src="img/context-ac-architecture.png" />
+					</section>
+					<section>
+						<h2>4.5 Context Access Control Policy</h2>
+						<pre><code class="xml">
+<privacy user="jmgonc@openfire" xmlns="http://iex.ptin.pt/ctx/privacy">
+  <privacyProfiles>
+    <profile id="1" name="GPS Tracking for Home Appliances">
+      <publishedContextNamespace>http://iex.ptin.pt/ctx/gps</publishedContextNamespace>
+      <parameterRules>
+        <parameterRule>
+          <parameter>latitude</parameter>
+          <condition lang="regexp" var="">40\.6[2-5]\d*</condition>
+        </parameterRule>
+        <parameterRule>
+          <parameter>longitude</parameter>
+          <condition lang="regexp" var="">-8\.6[2-7]\d*</condition>
+        </parameterRule>
+      </parameterRules>
+      <timeRule>
+        <timeOfDayCondition lang="regexp" var="">.*</timeOfDayCondition>
+        <weekdayCondition lang="regexp" var="">.*</weekdayCondition>
+        <dailyExceptionCondition lang="regexp" var="">0</dailyExceptionCondition>
+      </timeRule>
+      <publishingDelay>0</publishingDelay>
+    </profile>
+
+...
+  </privacyProfiles>
+</privacy>
+						</code></pre>
+					</section>
+					<section>
+						<h2>4.6 Minimized Context Distribution</h2>
+						<p>Filtering by parameter values (e.g. geo-boxing)</p>
+						<img src="img/area.png"/>
+						<p>Filtering by date/time (time-boxing)</p>
+					</section>
+					<section>
+						<h2>4.7 Access Control Latency</h2>
+						<img src="img/latency.png" style="height:500px"/>
 					</section>
 				</section>
 
 				<section>
 					<section>
-						<h2>5. Data-level Re-Identification</h2>
+						<h2>5. Data-level Re-Identification Protection</h2>
+						<p>Indistinguishability of records within a database</p>
+						<p>Sparsity is a key problem in high-dimensionality</p>
 						<p>TODO</p>
 					</section>
 					<section>
-						<h2>data-level pseudonym unlinkability through PPDM #2</h2>
-						<p>TODO Section 5</p>
+						<h2>5.1 Record Fragmentation</h2>
+						<img src="img/fragmentation.png" style="height:500px"/>
 					</section>
 					<section>
-						<h2>data-level pseudonym unlinkability through PPDM #3</h2>
-						<p>TODO Section 5</p>
+						<h2>5.2 Experiments</h2>
+						<p>Netflix and Movielens datasets</p>
+						<p>Well known re-identification attack</p>
+						<p>Recent sanitization algorithm as baseline</p>
+					</section>
+					<section>
+						<h2>5.3 Predictions RMSE</h2>
+						<img src="img/rmse.png" style="height:500px"/>
+					</section>
+					<section>
+						<h2>5.4 Re-identification vs Auxiliary Information</h2>
+						<img src="img/reid-aux.png" style="height:500px"/>
+					</section>
+					<section>
+						<h2>5.5 Re-identification Limit</h2>
+						<img src="img/reid-limit.png" style="height:500px"/>
+					</section>
+					<section>
+						<h2>5.6 Adversary Gain</h2>
+						<img src="img/adv-gain.png" style="height:500px"/>
 					</section>
 				</section>
 
 				<section>
 					<section>
-						<h2>Implications for the domain</h2>
-						<p>TODO Section 6</p>
-					</section>
-					<section>
-						<h2>Implications for the domain #2</h2>
-						<p>TODO 7.2.1 Communications and Data Perspectives Towards a Privacy-enhancing Identity Layer</p>
-					</section>
-					<section>
-						<h2>Implications for the domain #3</h2>
-						<p>TODO 7.2.2 Data Minimization in Context-awareness Scenarios</p>
+						<h2>6. Conclusion</h2>
+						<p>TODO</p>
 					</section>
 				</section>
-
 			</div>
 
 		</div>
@@ -253,3 +325,45 @@
 
 	</body>
 </html>
+
+<!--
+<table>
+	<thead>
+		<tr>
+			<th>Dataset</th>
+			<th colspan="2">Netflix</th>
+			<th colspan="2">Movielens</th>
+		</tr>
+		<tr>
+			<th></th>
+			<th>RMSE</th>
+			<th>Diff</th>
+			<th>RMSE</th>
+			<th>Diff</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Average</td>
+			<td>1.05282</td>
+			<td>0</td>
+			<td>0.946021</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td>Lemonade</td>
+			<td>$2</td>
+			<td>18</td>
+			<td>$2</td>
+			<td>18</td>
+		</tr>
+		<tr>
+			<td>Bread</td>
+			<td>$3</td>
+			<td>2</td>
+			<td>$2</td>
+			<td>18</td>
+		</tr>
+	</tbody>
+</table>
+-->
