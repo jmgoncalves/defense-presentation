@@ -25,3 +25,7 @@ p.centered {
 pre {
   width: 500px;
 }
+
+.reveal .small-font td {
+  font-size: 18px;
+}
